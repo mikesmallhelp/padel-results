@@ -1,22 +1,18 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { Result } from '../../types/types';
+import type { Result, Results } from '../../types/types';
+import fs from 'fs';
+import path from 'path';
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Result[]>
 ) {
-  res.status(200).json(
-    [{
-      date: new Date(),
-      team1Result: {
-        player1Id: 1,
-        player2Id: 2,
-        result: 3
-      },
-      team2Result: {
-        player1Id: 3,
-        player2Id: 4,
-        result: 6
-      }
-    }])
+
+  fs.readFile(path.resolve('./results.json'), 'utf8', (err, jsonString) => {
+    if (err) {
+      console.log('File read failed:', err);
+      return;
+    }
+    res.status(200).json(JSON.parse(jsonString));
+  });
 }

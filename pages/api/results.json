@@ -1,0 +1,15 @@
+[
+    {
+        "date": "2022-10-01T05:34:28.961Z",
+        "team1Result": {
+            "player1Id": 1,
+            "player2Id": 2,
+            "result": 6
+        },
+        "team2Result": {
+            "player1Id": 3,
+            "player2Id": 4,
+            "result": 1
+        }
+    }
+]

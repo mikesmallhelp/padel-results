@@ -27,7 +27,7 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <button onClick={getResults}>Make API call 13:30</button>
+        <button onClick={getResults}>Make API call 13:39</button>
 
         <p className={styles.description}>
           Get started by editing{' '}

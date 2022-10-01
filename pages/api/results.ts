@@ -1,18 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { Result } from '../../types/types';
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Result[]>
 ) {
-
-  fs.readFile('./data/results.json', 'utf8', (err, jsonString) => {
-    if (err) {
-      console.log('File read failed:', err);
-      return;
-    }
-    res.status(200).json(JSON.parse(jsonString));
-  });
+  const jsonDirectory = path.join(process.cwd(), 'data');
+  const fileContents = await fs.readFile(jsonDirectory + '/results.json', 'utf8');
+  res.status(200).json(JSON.parse(fileContents));
 }

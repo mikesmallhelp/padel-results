@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 
 const getResults = async () => {
 	try {
-		const res = await fetch(`http://localhost:3000/api/results`);
+		const res = await fetch(`api/results`);
 		const data = await res.json();
 		console.log(data);
 	} catch (err) {

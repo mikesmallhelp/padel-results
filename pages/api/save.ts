@@ -7,7 +7,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Result[]>
 ) {
-  const jsonDirectory = path.join(process.cwd(), 'public');
+  const jsonDirectory = path.join(process.cwd(), 'data');
   const fileContents = await fs.readFile(jsonDirectory + '/results.json', 'utf8');
   const results: Result[] = JSON.parse(fileContents);
 
